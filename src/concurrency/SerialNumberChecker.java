@@ -4,7 +4,9 @@ package concurrency;
 // Operations that may seem safe are not,
 // when threads are present.
 // {Args: 4}
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 // Reuses storage so we don't run out of memory:
 class CircularSet {

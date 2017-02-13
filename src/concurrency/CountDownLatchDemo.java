@@ -26,7 +26,7 @@ class TaskPortion implements Runnable {
 	}
 
 	public void doWork() throws InterruptedException {
-//		print(this + "started");
+		// print(this + "started");
 		TimeUnit.MILLISECONDS.sleep(rand.nextInt(200));
 		print(this + "completed");
 	}

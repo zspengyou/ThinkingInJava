@@ -7,16 +7,34 @@ public class AtomicityTest implements Runnable {
 	private volatile int i = 0;
 
 	public int getValue() {
-		return i;
-	}
-
-	private  void evenIncrement() {
-		synchronized(this){
-			
-			i+=2;
-//			i++;
+		synchronized (this) {
+			return i;
 		}
 	}
+
+	private void evenIncrement() {
+		synchronized (this) {
+			i++;
+			i++;
+		}
+	}
+
+	// public synchronized int getValue() {
+	// return i;
+	// }
+	//
+	// private synchronized void evenIncrement() {
+	// i++;
+	// i++;
+	// }
+
+	// public int getValue() {
+	// return i;
+	// }
+	// private synchronized void evenIncrement() {
+	// i++;
+	// i++;
+	// }
 
 	public void run() {
 		while (true)
@@ -31,6 +49,7 @@ public class AtomicityTest implements Runnable {
 			int val = at.getValue();
 			if (val % 2 != 0) {
 				System.out.println(val);
+				System.err.println("AtomicityTest is interrupted in the middle of evenIncrement()");
 				System.exit(0);
 			}
 		}
