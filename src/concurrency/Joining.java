@@ -33,7 +33,6 @@ class Sleeper extends Thread {
 /**
  * named thread, start thread in the constructor
  * 
- * @author volante
  *
  */
 class Joiner extends Thread {
@@ -47,7 +46,7 @@ class Joiner extends Thread {
 
 	public void run() {
 		try {
-			sleeper.join();// TODO
+			sleeper.join();
 			print("in thread " + getName());
 		} catch (InterruptedException e) {
 			print("Interrupted");
